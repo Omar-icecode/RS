@@ -1,0 +1,28 @@
+@import 'bootstrap/scss/bootstrap';
+
+body {
+    background-color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table-container {
+    height: 44vh;
+}
+
+table tbody tr {
+    cursor: pointer;
+}
+
+.login {
+    width: min(100%, 500px)
+}
+
+.client-form {
+    width: min(100%, 800px);
+}
+
