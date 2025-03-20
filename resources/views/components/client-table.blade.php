@@ -21,14 +21,14 @@
           @endif
         </tr>
         <tr class="table-dark text-nowrap">
-          <th>No#</th>
+          <th>no#</th>
           <th>client's name</th>
           <th>contact</th>
           <th>address</th>
           <th>date attended</th>
           <th>service offered</th>
-          <th>Amount Paid (Ghc)</th>
-          <th>Action</th>
+          <th>amount paid (Ghc)</th>
+          <th>action</th>
         </tr>
       </thead>
       <tbody>
@@ -59,11 +59,13 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Client Update</h4>
+          <h4 class="modal-title">Update Client</h4>
           <button class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="" method='POST'>
+            @csrf
+            @method('PUT')
             <label for="service" class="form-label">Service Offered</label>
             <select name="" id="service" class="form-select">
                 <option selected disabled>Select Service</option>

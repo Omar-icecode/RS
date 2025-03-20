@@ -10,5 +10,5 @@
       <p class="m-0"><strong>total referral: </strong>{{$clients->count()}} </p>
     </div>
 
-    <x-marketer-table :clients="$clients" :marketer="$marketer"/>
+    <x-client-table :clients="$clients" :marketer="$marketer"/>
 </x-layout>

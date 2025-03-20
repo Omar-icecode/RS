@@ -42,7 +42,7 @@ if($serial_number === 5){
               <input
                 type="text"
                 name="fullname"
-                class="form-control mb-2"
+                class="form-control mb-2 text-capitalize"
                 id="name"
                 placeholder="enter name of marketer"
               />
@@ -70,7 +70,7 @@ if($serial_number === 5){
               <input
                 type="text"
                 name="address"
-                class="form-control mb-2"
+                class="form-control mb-2 text-capitalize"
                 id="address"
                 placeholder="enter contact of marketer"
               />

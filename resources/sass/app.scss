@@ -1,9 +1,14 @@
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
+
+::placeholder {
+    text-transform: lowercase;
+}
 
 body {
     background-color: #ffffff;
     min-height: 100vh;
     overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -11,7 +16,7 @@ a {
 }
 
 .table-container {
-    height: 44vh;
+    height: 45vh;
 }
 
 table tbody tr {
@@ -19,10 +24,9 @@ table tbody tr {
 }
 
 .login {
-    width: min(100%, 500px)
+    width: min(100%, 500px);
 }
 
 .client-form {
     width: min(100%, 800px);
 }
-

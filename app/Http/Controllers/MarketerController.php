@@ -22,6 +22,13 @@ class MarketerController extends Controller
         ]);
     }
 
+    public function clients()
+    {
+        return view('dashboard.clients', [
+            'clients' => DB::table('clients')->get()
+        ]);
+    }
+
     public function show(Marketer $marketer)
     {
         return view('marketer.details', [
@@ -88,12 +95,23 @@ class MarketerController extends Controller
             'contact.unique' => "This client already exists"
         ]);
 
+
         if (Marketer::where('serial_number', $formFields['referred_by'])->count() == 0) {
             return back()->with('msg', 'serial number does not exist');
         }
 
+        $marketer_id = DB::table('marketers')
+            ->where('serial_number', $formFields['referred_by'])->get('id');
+        foreach ($marketer_id as $id) {
+            $marketer_id = $id->id;
+        }
 
-        Client::create(array_merge($formFields, ['date_attended' => now(), 'service_offered' => 'free screening', 'amount_paid' => str(0.00)]));
+        Client::create(array_merge($formFields, [
+            'date_attended' => now(),
+            'service_offered' => 'free screening',
+            'amount_paid' => str(0.00),
+            'marketer_id' => $marketer_id
+        ]));
 
         DB::table('marketers')
             ->where('serial_number', $formFields['referred_by'])
@@ -114,4 +132,6 @@ class MarketerController extends Controller
         ]));
         return back()->with('message', $marketer->fullname . ' has been paid ' . $formFields['amount_paid']);
     }
+
+
 }

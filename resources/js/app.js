@@ -3,7 +3,7 @@ import './bootstrap';
 import * as bootstrap from 'bootstrap';
 
 let tableRows = document.querySelectorAll('.details');
-let alert = document.querySelector('.alert');
+let alert = document.querySelector('#alert');
 
 tableRows.forEach(row => {
     row.addEventListener('click', function() {

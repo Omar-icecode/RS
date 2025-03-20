@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('service_offered');
             $table->string('amount_paid');
             $table->string('referred_by')->foreignId();
+            $table->integer('marketer_id')->foreignId();
             $table->timestamps();
         });
     }

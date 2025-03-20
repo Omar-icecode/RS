@@ -27,7 +27,7 @@
               <input
                 type="text"
                 name="fullname"
-                class="form-control mb-2"
+                class="form-control mb-2 text-capitalize"
                 id="fullname"
                 placeholder="enter name of marketer"
               />
@@ -55,7 +55,7 @@
               <input
                 type="text"
                 name="address"
-                class="form-control mb-2"
+                class="form-control mb-2 text-capitalize"
                 id="address"
                 placeholder="enter contact of marketer"
               />

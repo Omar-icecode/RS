@@ -14,24 +14,35 @@
 />
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body class="container-lg p-3">
-    <div
-    class="container-fluid bg-primary p-2 text-center text-white position-sticky  z-index-1 top-0"
+<body class="container-lg p-3 ">
+  <div
+    class="container-fluid bg-primary p-2 text-center text-white position-sticky  z-index-1 top-0 d-flex gap-2 justify-content-center align-items-center"
   >
-    <h2><a href="/" class="text-white">Referral System</a></h2>
+    <h2 class="m-0"><a href="/" class="text-white">Easy Client RS</a></h2>
+    <img src="{{asset('images/ecrslight.png')}}" class='border rounded p-1' width="60" alt="">
+
+    @auth
+    <p class="text-uppercase position-absolute end-0 bottom-0 me-3 d-none d-md-block"><strong>welcome {{auth()->user()->username}}</strong></p>
+    @endauth
   </div>
-  @if(session()->has('message'))
-    <div class="alert alert-info  w-50 m-auto">
+  
+  <div class="container position-relative">
+    @if(session()->has('message'))
+    <div class="bg-info text-white p-2 position-absolute end-0" id="alert">
       {{session('message')}}
     </div>
-  @endif 
+    @endif 
+  </div>
 
-  
-  @if ($errors->has('*'))
-<div class="alert alert-danger w-50 m-auto">
-    <strong>Request Unsuccessful!</strong>
+  <div class="container position-relative">
+    @if ($errors->has('*'))
+    <div class="bg-danger text-white p-2 position-absolute end-0" id="alert">
+      Unsuccessful Request !
+    </div>
+    @endif
 </div>
-@endif
+
+
     {{$slot}}
 </body>
 </html>

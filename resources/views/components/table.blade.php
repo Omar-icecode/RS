@@ -1,13 +1,13 @@
-@props(['marketers','clients'])
+@props(['marketers','clients','number'])
 <div class="d-md-flex gap-5 p-2">
   <h6>Total Number of Referrals: {{count($clients)}}</h6>
 
   @php
   $unpaid = 0;
   $paid = 0;
-  for ($i=0; $i < $marketers->count(); $i++) { 
-    $unpaid += $marketers[$i]->unpaid_amount;
-    $paid += $marketers[$i]->amount_paid;
+  for ($i=0; $i < $number->count(); $i++) { 
+    $unpaid += $number[$i]->unpaid_amount;
+    $paid += $number[$i]->amount_paid;
   }
   @endphp 
 
@@ -24,11 +24,11 @@
       <thead class="position-sticky top-0">
         <tr>
           <th colspan="2">
-            <h4 class="d-inline">{{count($marketers)}} Marketer(s)</h4> 
+            <h4 class="d-inline text-nowrap">{{count($marketers)}} Marketer(s)</h4> 
           </th>
           <th colspan="5" class="text-center">
             @if(request('filterBy'))
-            <h4 class="text-primary ms-5">Results for ({{request('filterBy')}})</h4>
+            <h6 class="text-primary ms-5">Results for ({{request('filterBy')}})</h6>
             @endif
           </th>
           <th colspan="2">

@@ -44,4 +44,9 @@ class Marketer extends Model
     {
         return $this->hasMany(Client::class, 'referred_by');
     }
+
+    public function client_refer_id()
+    {
+        return $this->hasMany(Client::class, 'marketer_id');
+    }
 }
